@@ -1,21 +1,24 @@
 #include <ncurses.h>
 #include <stdlib.h>
 
+const char version[3][6] = {
+    "(4x4)", 
+    "(5x5)",
+    "(6x6)", 
+};
+
 int main()
 {
 	unsigned int choice = 0, size;
-	int flag = 0, i;
-	const char version[3][11] = {
-    	"Easy(4x4)", 
-    	"Medium(5x5)",
-    	"Hard(6x6)", 
-	};
+	int flag = 0, i = 0;
     initscr();                   
     curs_set(0);
     keypad (stdscr, true); 
+    printw("%s\n", version[i]);
     while (flag == 0) //Выбор уровня сложности{
     {
     	clear();
+        printw("Choose the difficulty of the game\n");
     	for (i = 0; i < 3; i++)
     	{
     		if (i == choice)
@@ -49,6 +52,5 @@ int main()
     	size = 6; // }
     
     int * puzzle = (int *)malloc(sizeof(int)*size*size);   //Создание матрицы с выбранным размером 
-    
     return 0;
 }
