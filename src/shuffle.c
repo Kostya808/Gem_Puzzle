@@ -1,7 +1,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-void shuffle (int* puzzle, size_t side_length)
+void shuffle (int* puzzle, unsigned int side_length)
 {
 	srand(time(NULL));
 	size_t row_num, col_num, a, b, tmp;
