@@ -1,18 +1,19 @@
 #include <stdbool.h>
+#include <stddef.h>
 
 bool check (int* puzzle, unsigned int side_length)
 {
 	size_t row_num, col_num, e, k, N = 0, add = 0;
 	for (row_num = 0; row_num < side_length; ++row_num){
 		for (col_num = 0; col_num < side_length; ++col_num){
-			if (arr[side_length*row_num+col_num] == 0)
+			if (puzzle[side_length*row_num+col_num] == 0)
 				e = row_num + 1;
 			do {
 				++k;
 				++add;
-				if ((row_num == size_length - 1)&&(col_num == size_length - 1))
+				if ((row_num == side_length - 1)&&(col_num == side_length - 1))
 					k = 0;
-			} while (arr[side_length*row_num+col_num] < arr[side_length*row_num+col_num+add]);
+			} while (puzzle[side_length*row_num+col_num] < puzzle[side_length*row_num+col_num+add]);
 			N += k;
 			k = 0;
 			add = 0;

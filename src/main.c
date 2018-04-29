@@ -1,10 +1,14 @@
 #include <ncurses.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include "init.h"
+#include "shuffle.h"
+#include "check.h"
 
 const char version[3][6] = {
     "(4x4)", 
     "(5x5)",
-    "(6x6)", 
+    "(6x6)"
 };
 
 int main()
@@ -51,6 +55,12 @@ int main()
     else
     	size = 6; // }
     
-    int * puzzle = (int *)malloc(sizeof(int)*size*size);   //Создание матрицы с выбранным размером 
+    int * puzzle = (int *)malloc(sizeof(int)*size*size); //Создание матрицы с выбранным размером
+    init (puzzle, size);
+    bool check_result;
+    do {
+	    shuffle (puzzle, size);
+	    check_result = check (puzzle, size);
+	} while (check_result == false);
     return 0;
 }
