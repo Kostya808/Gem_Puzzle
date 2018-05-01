@@ -43,14 +43,3 @@ int complexity()
     return check_complexity(choice);
 }
 
-size_t check_complexity(int choice)
-{
-    size_t size;
-    if (choice == 0)
-        size = 4;
-    else if (choice == 1)
-        size = 5;
-    else
-        size = 6; 
-    return size;
-}

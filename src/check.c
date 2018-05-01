@@ -25,3 +25,15 @@ bool check (int* puzzle, unsigned int side_length)
 	else
 		return false;
 }
+
+size_t check_complexity(int choice)
+{
+    size_t size = 0;
+    if (choice == 0)
+        size = 4;
+    if (choice == 1)
+        size = 5;
+    if (choice == 2)
+        size = 6; 
+    return size;
+}
