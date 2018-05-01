@@ -1,7 +1,7 @@
 All: bin/gem 
 
-bin/gem: build/main.o build/init.o build/shuffle.o build/check.o build/complexity.o
-	gcc -Wall -o bin/gem build/main.o build/init.o build/shuffle.o build/check.o build/complexity.o -lncurses 	
+bin/gem: build/main.o build/init.o build/shuffle.o build/check.o build/complexity.o build/interface.o
+	gcc -Wall -o bin/gem build/main.o build/init.o build/shuffle.o build/check.o build/complexity.o build/interface.o -lncurses 	
 
 build/main.o: src/main.c
 	gcc -Wall -c src/main.c -o build/main.o
@@ -17,6 +17,9 @@ build/check.o: src/check.c
 
 build/complexity.o: src/complexity.c
 	gcc -Wall -c src/complexity.c -o build/complexity.o
+
+build/interface.o: src/interface.c
+	gcc -Wall -c src/interface.c -o build/interface.o
 
 .PHONY: clean
 clean:

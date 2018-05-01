@@ -13,6 +13,6 @@ int main()
 	    shuffle (puzzle, size);
 	    check_result = check (puzzle, size);
 	} while (check_result == false);
-
+    interface(size, puzzle);
     return 0;
 }
