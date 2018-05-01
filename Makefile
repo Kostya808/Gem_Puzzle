@@ -1,7 +1,7 @@
 All: bin/gem bin/test
 
-bin/gem: build/main.o build/init.o build/shuffle.o build/check.o build/complexity.o build/interface.o
-	gcc -Wall -o bin/gem build/main.o build/init.o build/shuffle.o build/check.o build/complexity.o build/interface.o -lncurses 	
+bin/gem: build/main.o build/init.o build/shuffle.o build/check.o build/complexity.o build/interface.o build/move.o
+	gcc -Wall -o bin/gem build/main.o build/init.o build/shuffle.o build/check.o build/complexity.o build/interface.o build/move.o -lncurses 	
 
 build/main.o: src/main.c
 	gcc -Wall -c src/main.c -o build/main.o
@@ -20,6 +20,9 @@ build/complexity.o: src/complexity.c
 
 build/interface.o: src/interface.c
 	gcc -Wall -c src/interface.c -o build/interface.o
+
+build/move.o: src/move.c
+	gcc -Wall -c src/move.c -o build/move.o
 
 bin/test: build/test.o build/ctest.o build/check.o
 	gcc -Wall -o bin/test build/test.o build/ctest.o build/check.o  
