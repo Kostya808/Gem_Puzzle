@@ -1,9 +1,7 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "init.h"
-#include "shuffle.h"
-#include "check.h"
+#include "function.h"
 
 const char version[3][6] = {
     "(4x4)", 
