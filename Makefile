@@ -27,8 +27,8 @@ build/move.o: src/move.c
 build/win.o: src/win.c
 	gcc -Wall -c src/win.c -o build/win.o
 
-bin/test: build/test.o build/ctest.o build/check.o
-	gcc -Wall -o bin/test build/test.o build/ctest.o build/check.o  
+bin/test: build/test.o build/ctest.o build/check.o build/win.o build/init.o
+	gcc -Wall -o bin/test build/test.o build/ctest.o build/win.o build/init.o build/check.o
 
 build/test.o: test/test.c
 	gcc -Wall -c test/test.c -o build/test.o -Ithirdparty -Isrc

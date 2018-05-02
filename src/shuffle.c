@@ -1,5 +1,6 @@
 #include <time.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 void shuffle (int* puzzle, unsigned int side_length)
 {

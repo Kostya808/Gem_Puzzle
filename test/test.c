@@ -1,7 +1,7 @@
 #include <ctest.h>
 #include <stdbool.h>
 #include <function.h>
-
+#include <stdlib.h>
 
 CTEST(check_selection, choice_of_complexity) 
 {
@@ -31,4 +31,21 @@ CTEST(check_selection, choice_of_complexity)
 	ASSERT_EQUAL(expected3, size3);
 	ASSERT_EQUAL(expected4, size4);
 	ASSERT_EQUAL(expected5, size5);
+}
+
+CTEST(check_for_move, check_win) 
+{
+	size_t size = 3;
+
+    //GIVEN
+    int *puzzle = (int *)malloc(sizeof(int) * size * size);
+	init(puzzle, size);
+
+	//WHEN
+	size_t win2 = check_win(size, puzzle);
+
+	//THEN
+	const size_t expected2 = 1;
+
+	ASSERT_EQUAL_U(expected2, win2);
 }

@@ -3,6 +3,7 @@
 #include "function.h"
 #include <stdio.h>
 #include <stddef.h>
+#include <ncurses.h>
 
 int main()
 {
@@ -17,11 +18,12 @@ int main()
 	    check_result = check (puzzle, size);
 	} while (check_result == false);
     empty = search(puzzle, size * size, 0);
-	while (win != -1) {
+	while (win != 1) {
 	    interface(size, puzzle);
 	    empty = move_cells(empty, size, puzzle);
-		if (puzzle[size * size - 1] == 0)
+		if (empty == size * size - 1)
 		    win = check_win(size, puzzle);
 	}
+	interface(size, puzzle);
     return 0;
 }
