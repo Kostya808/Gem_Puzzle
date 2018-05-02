@@ -1,4 +1,5 @@
 #include <ncurses.h>
+#include <stddef.h>
 
 void interface(size_t size, int * puzzle)
 {
@@ -35,6 +36,5 @@ void interface(size_t size, int * puzzle)
     printw("-");
 	printw("\n");
     
-    getch();
     endwin();
 }
