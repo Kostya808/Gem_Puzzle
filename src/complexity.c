@@ -1,7 +1,8 @@
 #include <ncurses.h>
 #include "function.h"
 
-const char version[3][6] = {
+const char version[4][6] = {
+	"(3x3)",
     "(4x4)", 
     "(5x5)",
     "(6x6)"
@@ -18,7 +19,7 @@ int complexity()
     while (flag == 0){
     	clear();
         printw("Choose the difficulty of the game\n");
-    	for (i = 0; i < 3; i++){
+    	for (i = 0; i < 4; i++){
     		if (i == choice)
     			addch('>');
     		else
