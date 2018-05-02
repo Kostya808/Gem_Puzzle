@@ -3,11 +3,12 @@
 
 int search(int *puzzle, size_t n, int key)
 {
-  for (int i = 0; i < n; i++) {
-    if (puzzle[i] == key)
-      return i;
-  }
-  return -1;
+    int i;
+    for (i = 0; i < n; i++) {
+        if (puzzle[i] == key)
+            return i;
+    }
+    return -1;
 }
 
 void swap(int *a, int *b) {
