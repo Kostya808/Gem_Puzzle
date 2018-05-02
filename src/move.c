@@ -2,7 +2,7 @@
 #include <stddef.h>
 
 
-int search(int *puzzle, int n, int key)
+int search(int *puzzle, size_t n, int key)
 {
   for (int i = 0; i < n; i++) {
     if (puzzle[i] == key)
@@ -24,7 +24,6 @@ int move_empty(size_t size, int *puzzle)
     keypad(stdscr, true);
     size_t empty = search(puzzle, size * size, 0), i = 0;
     if (empty != -1) {
-        while (i != -1){
             switch (getch()) {
             case KEY_UP:
                 if (empty >= size)
@@ -44,8 +43,6 @@ int move_empty(size_t size, int *puzzle)
                     return 0;
             
             }
-        }
-        i = 0;
     }
     endwin();
     return -1;

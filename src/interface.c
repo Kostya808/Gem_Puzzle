@@ -1,4 +1,5 @@
 #include <ncurses.h>
+#include <stddef.h>
 
 void interface(size_t size, int * puzzle)
 {

@@ -12,5 +12,6 @@ void interface(int size, int * puzzle);
 int move_empty(size_t size, int *puzzle);
 int search(int *puzzle, int n, int key);
 void swap(int *a, int *b);
+int check_win(size_t size, int *puzzle);
 
 #endif
