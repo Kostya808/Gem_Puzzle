@@ -20,30 +20,34 @@ void swap(int *a, int *b) {
 int move_empty(size_t size, int *puzzle)
 {
     initscr();
-    curs_set(0);
+    curs_set(0); 
     keypad(stdscr, true);
-    size_t empty = search(puzzle, size * size, 0), i = 0;
+    size_t empty = search(puzzle, size * size, 0);
     if (empty != -1) {
             switch (getch()) {
-            case KEY_UP:
+            case KEY_DOWN:
                 if (empty >= size)
                     swap(&puzzle[empty], &puzzle[empty - size]);
                     return 0;
-            case KEY_DOWN:
-                if (empty <= size * size - 5)
+                    endwin();
+            case KEY_UP:
+                if (empty <= size * size - (size +1))
                     swap(&puzzle[empty], &puzzle[empty + size]);
                     return 0;
-            case KEY_LEFT:
+                    endwin();
+            case KEY_RIGHT:
                 if (empty % size != 0)
                     swap(&puzzle[empty], &puzzle[empty - 1]);
                     return 0;
-            case KEY_RIGHT:
+                    endwin();
+            case KEY_LEFT:
                 if (empty % size != size -1)
                     swap(&puzzle[empty], &puzzle[empty + 1]);
                     return 0;
+                    endwin();
             
             }
     }
-    endwin();
     return -1;
+    endwin();
 }

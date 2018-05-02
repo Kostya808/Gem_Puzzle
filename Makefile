@@ -24,7 +24,7 @@ build/interface.o: src/interface.c
 build/move.o: src/move.c
 	gcc -Wall -c src/move.c -o build/move.o
 
-build/move.o: src/win.c
+build/win.o: src/win.c
 	gcc -Wall -c src/win.c -o build/win.o
 
 bin/test: build/test.o build/ctest.o build/check.o
