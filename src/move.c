@@ -17,37 +17,40 @@ void swap(int *a, int *b) {
     *b = temp;
 }
 
-int move_empty(size_t size, int *puzzle)
+size_t move_cells(size_t empty, size_t size, int *puzzle)
 {
     initscr();
     curs_set(0); 
     keypad(stdscr, true);
-    size_t empty = search(puzzle, size * size, 0);
     if (empty != -1) {
             switch (getch()) {
             case KEY_DOWN:
                 if (empty >= size)
                     swap(&puzzle[empty], &puzzle[empty - size]);
-                    return 0;
+                    empty = empty - size;
+                    return empty;
                     endwin();
             case KEY_UP:
                 if (empty <= size * size - (size +1))
                     swap(&puzzle[empty], &puzzle[empty + size]);
-                    return 0;
+                    empty = empty + size;
+                    return empty;
                     endwin();
             case KEY_RIGHT:
                 if (empty % size != 0)
                     swap(&puzzle[empty], &puzzle[empty - 1]);
-                    return 0;
+                    empty = empty -1;
+                    return empty;
                     endwin();
             case KEY_LEFT:
                 if (empty % size != size -1)
                     swap(&puzzle[empty], &puzzle[empty + 1]);
-                    return 0;
+                    empty = empty + 1;
+                    return empty;
                     endwin();
             
             }
     }
-    return -1;
+    return empty;
     endwin();
 }
