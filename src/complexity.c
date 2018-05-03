@@ -1,7 +1,8 @@
 #include <ncurses.h>
 #include "function.h"
 
-const char version[4][6] = {
+const char version[5][6] = {
+    "(2x2)",
 	"(3x3)",
     "(4x4)", 
     "(5x5)",
@@ -32,7 +33,7 @@ int complexity()
     				choice--;
     			break;
     		case KEY_DOWN:
-    			if (choice != 2)
+    			if (choice != 3)
     				choice++;
     			break;
     		case 10:
