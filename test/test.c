@@ -11,6 +11,7 @@ CTEST(check_selection, choice_of_complexity)
 	const int choice3 = 2;
 	const int choice4 = 3;
 	const int choice5 = 4;
+	const int choice6 = 5;
 	
 	//WHEN
 	size_t size1 = check_complexity(choice1);
@@ -18,19 +19,22 @@ CTEST(check_selection, choice_of_complexity)
 	size_t size3 = check_complexity(choice3);	
 	size_t size4 = check_complexity(choice4);
 	size_t size5 = check_complexity(choice5);
+	size_t size6 = check_complexity(choice6);
 
 	//THEN
-	const size_t expected1 = 3;
-	const size_t expected2 = 4;
-	const size_t expected3 = 5;
-	const size_t expected4 = 6;
-	const size_t expected5 = 0;
+	const size_t expected1 = 2;
+	const size_t expected2 = 3;
+	const size_t expected3 = 4;
+	const size_t expected4 = 5;
+	const size_t expected5 = 6;
+	const size_t expected6 = 0;
 
 	ASSERT_EQUAL(expected1, size1);
 	ASSERT_EQUAL(expected2, size2);
 	ASSERT_EQUAL(expected3, size3);
 	ASSERT_EQUAL(expected4, size4);
 	ASSERT_EQUAL(expected5, size5);
+	ASSERT_EQUAL(expected6, size6);
 }
 
 CTEST(check_for_move, check_win) 
