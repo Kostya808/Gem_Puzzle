@@ -14,5 +14,6 @@ int search(int *puzzle, size_t n, int key);
 void swap(int *a, int *b);
 int check_win(size_t size, int *puzzle);
 int quit();
+void quit_win();
 
 #endif

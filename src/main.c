@@ -32,6 +32,6 @@ int main()
 		if (empty == size * size - 1)
 		    win = check_win(size, puzzle);
 	}
-	interface(size, puzzle);
+	quit_win();
     return 0;
 }

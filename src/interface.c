@@ -21,12 +21,6 @@ void interface(size_t size, int * puzzle)
 
     getmaxyx(stdscr, row, col); 
 
-    start_color();
-
-    init_pair(1,  COLOR_BLUE,    COLOR_BLACK);
-
-    attron(COLOR_PAIR(1));
-    printw("To exit, press ESC");
     for (k = 0; k < size; k++)
     	mvwprintw(stdscr, (row - size*2) / 2, col/2 - size*2 + k*3,"===");
     printw("=");
@@ -57,6 +51,9 @@ void interface(size_t size, int * puzzle)
     	mvwprintw(stdscr, (row - size*2) / 2 + i + 1 + count, col/2 - size*2 + k*3,"===");
     printw("=");
 	printw("\n");
+    printw("");
+    mvwprintw(stdscr, row - 2, 0, "Use the keys: key_up, key_down, key_right, key_left for moving...");
+    mvwprintw(stdscr, row - 3, 0, "To exit, press ESC...");
     
     endwin();
 }
@@ -64,9 +61,15 @@ void interface(size_t size, int * puzzle)
 int quit()
 {
     int row, col, choice = 0, flag;
+
     initscr();
+
     clear();
+
+    keypad(stdscr, true); 
+
     getmaxyx(stdscr, row, col); 
+
     while (flag == 0){
         clear();
         mvwprintw(stdscr, row / 2, (col - 34) / 2, "Are you sure you want to get out?");
@@ -82,7 +85,7 @@ int quit()
                 mvwaddch(stdscr, row / 2 + 2, (col - 34) / 2 + 3,'>');
                 mvwprintw(stdscr, row / 2 + 2, (col - 34) / 2 + 4,"No, I changed my mind");
             }
-        
+        mvwprintw(stdscr, row - 2, col - col, "Use the keys: key_up, key_down, enter to select...");
         switch (getch()){
             case KEY_UP:
                 if (choice > 0)
@@ -105,4 +108,21 @@ int quit()
     else
         endwin(); 
         return 0;
+}
+
+void quit_win()
+{
+    int row, col;
+
+    initscr();
+
+    clear();
+
+    getmaxyx(stdscr, row, col); 
+
+    mvwprintw(stdscr, row / 2, (col - 10) / 2, "You win!");
+    mvwprintw(stdscr, row - 1, 0, "Press any key...");
+
+    getch();
+    endwin();
 }
