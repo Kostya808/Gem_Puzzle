@@ -19,8 +19,8 @@ int complexity()
     printw("%s\n", version[i]);
     while (flag == 0){
     	clear();
-        printw("Choose the difficulty of the game\n");
-    	for (i = 0; i < 4; i++){
+        printw("Choose the difficulty of the game:\n");
+    	for (i = 0; i < 5; i++){
     		if (i == choice)
     			addch('>');
     		else
@@ -33,7 +33,7 @@ int complexity()
     				choice--;
     			break;
     		case KEY_DOWN:
-    			if (choice != 3)
+    			if (choice != 4)
     				choice++;
     			break;
     		case 10:

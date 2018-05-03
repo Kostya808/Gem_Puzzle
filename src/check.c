@@ -30,12 +30,14 @@ size_t check_complexity(int choice)
 {
     size_t size = 0;
     if (choice == 0)
-        size = 3;
+        size = 2;
     if (choice == 1)
-        size = 4;
+        size = 3;
     if (choice == 2)
-        size = 5;
+        size = 4;
 	if (choice == 3)
-        size = 6;
+        size = 5;
+    if (choice == 4)
+    	size = 6;
     return size;
 }
