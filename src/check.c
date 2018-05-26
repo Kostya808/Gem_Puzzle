@@ -3,15 +3,17 @@
 
 bool check (int* puzzle, unsigned int side_length)
 {
-	size_t row_num, col_num, e, k, N = 0, add = 0;
+	size_t row_num, col_num, e, k, N = 0, add = 1;
 	for (row_num = 0; row_num < side_length; ++row_num){
 		for (col_num = 0; col_num < side_length; ++col_num){
+			k = 0;
 			if (puzzle[side_length*row_num+col_num] == 0){
 				e = row_num + 1;
 				continue;
 			}
 			while (puzzle[side_length*row_num+col_num] < puzzle[side_length*row_num+col_num+add]) {
-				++k;
+				if (puzzle[side_length*row_num+col_num+add] != 0)
+					++k;
 				++add;
 				if ((row_num == side_length - 1)&&(col_num == side_length - 1))
 					k = 0;
