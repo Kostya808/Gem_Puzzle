@@ -1,4 +1,6 @@
 All: bin/gem bin/test
+test: bin/test
+	bin/test
 
 bin/gem: build/main.o build/init.o build/shuffle.o build/check.o build/complexity.o build/interface.o build/move.o build/win.o
 	gcc -Wall -o bin/gem build/main.o build/init.o build/shuffle.o build/check.o build/complexity.o build/interface.o build/move.o build/win.o -lncurses 	
