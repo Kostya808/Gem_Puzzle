@@ -1,4 +1,5 @@
 All: bin/gem bin/test
+
 test: bin/test
 	bin/test
 
