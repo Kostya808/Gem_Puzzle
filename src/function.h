@@ -2,6 +2,7 @@
 #define FUNCTION_H
 
 #include <stddef.h>
+#include <stdbool.h>
 
 int complexity();
 size_t check_complexity(int choice);
