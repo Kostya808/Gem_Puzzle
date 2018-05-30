@@ -6,7 +6,7 @@
 
 int main()
 {
-	int flag, buf;
+	int flag, buf, move = 0;
     size_t size = complexity(), win = 0, empty;    
     int * puzzle = (int *)malloc(sizeof(int)*size*size);
 	if (puzzle == NULL)
@@ -31,7 +31,10 @@ int main()
 	    }
 		if (empty == size * size - 1)
 		    win = check_win(size, puzzle);
+		move++;
 	}
+	int i = record(size, move);
+	printf("%d", i);
 	quit_win();
     return 0;
 }
