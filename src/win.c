@@ -29,7 +29,6 @@ int record(size_t size, int move) {
     while (!feof(in)) {
         if (fgetc(in) == '\n') {
             n++;
-            printf("%d", n);
         }
     }
     fseek(in , 0, SEEK_SET);

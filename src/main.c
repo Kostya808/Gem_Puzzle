@@ -33,8 +33,7 @@ int main()
 		    win = check_win(size, puzzle);
 		move++;
 	}
-	int i = record(size, move);
-	printf("%d", i);
+	record(size, move);
 	quit_win();
     return 0;
 }
