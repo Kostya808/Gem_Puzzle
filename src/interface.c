@@ -21,7 +21,7 @@ void interface(size_t size, int * puzzle, int move, int record)
 
     getmaxyx(stdscr, row, col); 
     printw("Your best result: %d\n", record); 
-    printw("%d\n", move); 
+    printw("Number of moves made: %d\n", move); 
     for (k = 0; k < size; k++)
     	mvwprintw(stdscr, (row - size*2) / 2, col/2 - size*2 + k*3,"===");
     printw("=");
