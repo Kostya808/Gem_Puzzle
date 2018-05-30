@@ -15,7 +15,7 @@ int record(size_t size, int move);
 int search(int *puzzle, size_t n, int key);
 void swap(int *a, int *b);
 int check_win(size_t size, int *puzzle);
-void quit_win();
+int quit_win();
 int resolve(int option);
 void mixing (int *puzzle, size_t size);
 

@@ -60,23 +60,6 @@ void interface(size_t size, int * puzzle, int move, int record)
     endwin();
 }
 
-void quit_win()
-{
-    int row, col;
-
-    initscr();
-
-    clear();
-
-    getmaxyx(stdscr, row, col); 
-
-    mvwprintw(stdscr, row / 2, (col - 10) / 2, "You win!");
-    mvwprintw(stdscr, row - 1, 0, "Press any key...");
-
-    getch();
-    endwin();
-}
-
 int resolve(int option)
 {
     int row, col, choice = 0, flag;
@@ -93,9 +76,12 @@ int resolve(int option)
         clear();
         if(option == 1)
             mvwprintw(stdscr, (row - 2) / 2, (col - 34) / 2, "Do you really want to start over?");
-        else
+        else if (option == 2)
             mvwprintw(stdscr, (row - 2) / 2, (col - 34) / 2, "Are you sure you want to get out?");
-        if (choice == 0){
+        else
+            mvwprintw(stdscr, (row - 2) / 2, (col - 32) / 2, "Want to start a new game?");
+        if (option != 3) {    
+            if (choice == 0){
                 mvwaddch(stdscr, row / 2 + 1, (col - 34) / 2 + 3, '>');
                 mvwprintw(stdscr, row / 2 + 1, (col - 34) / 2 + 4,"Yes, I give up");
                 mvwaddch(stdscr, row / 2 + 2, (col - 34) / 2 + 3,' ');
@@ -107,6 +93,21 @@ int resolve(int option)
                 mvwaddch(stdscr, row / 2 + 2, (col - 34) / 2 + 3,'>');
                 mvwprintw(stdscr, row / 2 + 2, (col - 34) / 2 + 4,"No, I changed my mind");
             }
+        }
+        else {
+            if (choice == 0){
+                mvwaddch(stdscr, row / 2 + 1, (col - 18) / 2 + 3, '>');
+                mvwprintw(stdscr, row / 2 + 1, (col - 18) / 2 + 4,"Yes");
+                mvwaddch(stdscr, row / 2 + 2, (col - 18) / 2 + 3,' ');
+                mvwprintw(stdscr, row / 2 + 2, (col - 18) / 2 + 4,"No");
+            }
+            else{
+                mvwaddch(stdscr, row / 2 + 1, (col - 18) / 2 + 3, ' ');
+                mvwprintw(stdscr, row / 2 + 1, (col - 18) / 2 + 4,"Yes");
+                mvwaddch(stdscr, row / 2 + 2, (col - 18) / 2 + 3,'>');
+                mvwprintw(stdscr, row / 2 + 2, (col - 18) / 2 + 4,"No");
+            }    
+        }
         mvwprintw(stdscr, row - 2, col - col, "Use the keys: key_up, key_down, enter to select...");
         switch (getch()){
             case KEY_UP:
@@ -130,4 +131,24 @@ int resolve(int option)
     else
         endwin(); 
         return 0;
+}
+
+int quit_win()
+{
+    int row, col, flag;
+
+    initscr();
+
+    clear();
+
+    getmaxyx(stdscr, row, col); 
+
+    mvwprintw(stdscr, row / 2, (col - 30) / 2, "Congratulations! You won!");
+    mvwprintw(stdscr, row - 1, 0, "Press any key...");
+    getch();
+    endwin();
+    flag = resolve(3);
+    if (flag == 0)
+        return 0;
+    return 1;
 }
