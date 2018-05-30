@@ -6,7 +6,7 @@
 
 int main()
 {
-	int flag, buf, move = 0;
+	int flag, buf, move = 0, rating, i;
     size_t size = complexity(), win = 0, empty;    
     int * puzzle = (int *)malloc(sizeof(int)*size*size);
 	if (puzzle == NULL)
@@ -18,8 +18,18 @@ int main()
 	    check_result = check (puzzle, size);
 	} while (check_result == false);
     empty = search(puzzle, size * size, 0);
-	while (win != 1) {
-	    interface(size, puzzle);
+	
+    FILE *rec = fopen("record.txt", "r");
+    if (rec == NULL) {
+        return -1;
+    }
+	for(i = 0; i < size - 1; i++)
+    	fscanf(rec, "%d", &rating);
+
+    fclose(rec);
+
+    while (win != 1) {
+	    interface(size, puzzle, move, rating);
 	    buf = empty;
 	    empty = move_cells(empty, size, puzzle);
 	    if (empty == size * size)
@@ -31,7 +41,8 @@ int main()
 	    }
 		if (empty == size * size - 1)
 		    win = check_win(size, puzzle);
-		move++;
+		if (buf != empty)
+			move++;
 	}
 	record(size, move);
 	quit_win();

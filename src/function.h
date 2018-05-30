@@ -9,7 +9,7 @@ size_t check_complexity(int choice);
 void init (int *puzzle, unsigned int side_length);
 void shuffle (int* puzzle, unsigned int side_length);
 bool check (int* puzzle, unsigned int side_length);
-void interface(int size, int * puzzle);
+void interface(int size, int * puzzle, int move, int record);
 size_t move_cells(size_t empty, size_t size, int *puzzle);
 int record(size_t size, int move);
 int search(int *puzzle, size_t n, int key);

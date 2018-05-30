@@ -1,7 +1,7 @@
 #include <ncurses.h>
 #include <stddef.h>
 
-void interface(size_t size, int * puzzle)
+void interface(size_t size, int * puzzle, int move, int record)
 {
     int i, j, k, count = 0;
     int row, col;
@@ -20,7 +20,8 @@ void interface(size_t size, int * puzzle)
     keypad(stdscr, true); 
 
     getmaxyx(stdscr, row, col); 
-
+    printw("Your best result: %d\n", record); 
+    printw("%d\n", move); 
     for (k = 0; k < size; k++)
     	mvwprintw(stdscr, (row - size*2) / 2, col/2 - size*2 + k*3,"===");
     printw("=");
