@@ -54,12 +54,30 @@ void interface(size_t size, int * puzzle, int move, int record)
 	printw("\n");
     printw("");
     mvwprintw(stdscr, row - 2, 0, "Use the keys: key_up, key_down, key_right, key_left for moving...");
-    mvwprintw(stdscr, row - 3, 0, "To exit, press ESC...");
+    mvwprintw(stdscr, row - 3, 0, "To exit press: esc...");
+    mvwprintw(stdscr, row - 4, 0, "To shuffle the chips press: space_key...");
     
     endwin();
 }
 
-int quit()
+void quit_win()
+{
+    int row, col;
+
+    initscr();
+
+    clear();
+
+    getmaxyx(stdscr, row, col); 
+
+    mvwprintw(stdscr, row / 2, (col - 10) / 2, "You win!");
+    mvwprintw(stdscr, row - 1, 0, "Press any key...");
+
+    getch();
+    endwin();
+}
+
+int resolve(int option)
 {
     int row, col, choice = 0, flag;
 
@@ -73,7 +91,10 @@ int quit()
 
     while (flag == 0){
         clear();
-        mvwprintw(stdscr, row / 2, (col - 34) / 2, "Are you sure you want to get out?");
+        if(option == 1)
+            mvwprintw(stdscr, (row - 2) / 2, (col - 34) / 2, "Do you really want to start over?");
+        else
+            mvwprintw(stdscr, (row - 2) / 2, (col - 34) / 2, "Are you sure you want to get out?");
         if (choice == 0){
                 mvwaddch(stdscr, row / 2 + 1, (col - 34) / 2 + 3, '>');
                 mvwprintw(stdscr, row / 2 + 1, (col - 34) / 2 + 4,"Yes, I give up");
@@ -109,21 +130,4 @@ int quit()
     else
         endwin(); 
         return 0;
-}
-
-void quit_win()
-{
-    int row, col;
-
-    initscr();
-
-    clear();
-
-    getmaxyx(stdscr, row, col); 
-
-    mvwprintw(stdscr, row / 2, (col - 10) / 2, "You win!");
-    mvwprintw(stdscr, row - 1, 0, "Press any key...");
-
-    getch();
-    endwin();
 }

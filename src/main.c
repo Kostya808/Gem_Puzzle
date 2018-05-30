@@ -12,11 +12,8 @@ int main()
 	if (puzzle == NULL)
 	    return -1;
     init (puzzle, size);
-    bool check_result;
-    do {
-	    shuffle (puzzle, size);
-	    check_result = check (puzzle, size);
-	} while (check_result == false);
+    mixing (puzzle, size);
+
     empty = search(puzzle, size * size, 0);
 	
     FILE *rec = fopen("record.txt", "r");
@@ -32,10 +29,20 @@ int main()
 	    interface(size, puzzle, move, rating);
 	    buf = empty;
 	    empty = move_cells(empty, size, puzzle);
-	    if (empty == size * size)
-	    {
-	    	flag = quit();
-	    	if(flag == 0)
+	    
+	    if (empty == (size * size) + 1) {
+		  	empty = buf;	
+	    	flag = resolve(1);
+	    	if (flag == 0) {
+    			mixing (puzzle, size);
+			    empty = search(puzzle, size * size, 0);
+			    move = 0;
+	    	}
+	    }
+
+	    if (empty == size * size) {
+	    	flag = resolve(2);
+	    	if (flag == 0)
 		    	return 0;
 		    empty = buf;
 	    }

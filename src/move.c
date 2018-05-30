@@ -56,6 +56,9 @@ size_t move_cells(size_t empty, size_t size, int *puzzle)
             case 27:
                 empty = size * size;
                 return empty;
+            case 32:
+                empty = (size * size) + 1;
+                return empty;
             }
     }
     return empty;

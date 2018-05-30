@@ -30,12 +30,13 @@ int complexity()
 
     while (flag == 0){
     	clear();
-        mvwprintw(stdscr, (row - 8) / 2, (col - 35) / 2, "Choose the size of the game field:\n");
+        mvwprintw(stdscr, (row - 8) / 2, (col - 32) / 2, "Welcome to the game Gem puzzle!");
+        mvwprintw(stdscr, (row - 5) / 2, (col - 35) / 2, "Choose the size of the game field:\n");
     	for (i = 0; i < 5; i++){
     		if (i == choice)
-    			mvwprintw(stdscr, (row - 6 + 2*i) / 2, (col - 15) / 2, ">Size");
+    			mvwprintw(stdscr, (row  + 2*i) / 2, (col - 15) / 2, ">Size");
     		else
-    			mvwprintw(stdscr, (row - 6 + 2*i) / 2, (col - 15) / 2, " Size");
+    			mvwprintw(stdscr, (row  + 2*i) / 2, (col - 15) / 2, " Size");
     		printw("%s\n", version[i]);
     	}
         mvwprintw(stdscr, row - 2, col - col, "Use the keys: key_up, key_down, enter to select...");
