@@ -2,10 +2,12 @@
 #include <stdbool.h>
 #include "function.h"
 #include <stddef.h>
+#include <time.h>
 #include <ncurses.h>
 
 int main()
 {
+	srand(time(NULL));
 	int flag, buf, move = 0, rating, i, preventor = 0, exit = 0;
     size_t win = 0, empty;    
     

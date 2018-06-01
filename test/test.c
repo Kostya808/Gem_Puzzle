@@ -160,15 +160,12 @@ CTEST (check_creating, check_shuffle)
 }
 
 CTEST(check_creating, test_for_solvability_check){
-	int puzzle1[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0};
+	int puzzle1[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,0,15};
 	bool result1 = check(puzzle1, 4);
-	//int puzzle2[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,15,14,0};
-	//bool result2 = check(puzzle2, 4);
-	int puzzle3[] = {13,9,5,1,14,10,6,2,15,11,7,3,0,12,8,4};
-	bool result3 = check(puzzle3, 4);
+	int puzzle2[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0};
+	bool result2 = check(puzzle2, 4);
 	ASSERT_TRUE(result1);
-	//ASSERT_FALSE(result2);
-	ASSERT_TRUE(result3);
+	ASSERT_FALSE(result2);
 }
 
 CTEST(check_selection, choice_of_complexity) 
