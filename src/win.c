@@ -6,20 +6,20 @@ int check_win(size_t size, int *puzzle)
 {
     int i, g = 0;
     for (i = 0; i < size * size - 1; i++) {
-        if (puzzle[i] == i + 1){
+        if (puzzle[i] == i + 1) {
             g = i + 1;
-        }
-        else {
+        } else {
             return 0;
         }
     }
-    if (g == size * size - 1){
+    if (g == size * size - 1) {
         return 1;
     }
     return 0;
 }
 
-int record(size_t size, int move) {
+int record(size_t size, int move)
+{
     int n = 0, count, i;
     char ch = '\n';
     FILE *in = fopen("record.txt", "r");
