@@ -35,6 +35,7 @@ int complexity()
         for (i = 0; i < 5; i++) {
             if (i == choice) {
                 mvwprintw(stdscr, (row  + 2 * i) / 2, (col - 15) / 2, ">Size");
+                printw("%s\n", version[i]);
             } else {
                 mvwprintw(stdscr, (row  + 2 * i) / 2, (col - 15) / 2, " Size");
                 printw("%s\n", version[i]);
@@ -43,15 +44,13 @@ int complexity()
         mvwprintw(stdscr, row - 2, col - col, "Use the keys: key_up, key_down, enter to select...");
         switch (getch()) {
         case KEY_UP:
-    	    if (choice > 0) {
+    	    if (choice > 0) 
                 choice--;
-                break;
-            }
+            break;
     	case KEY_DOWN:
-            if (choice != 4) {
+            if (choice != 4) 
                 choice++;
-                break;
-            }
+            break;
         case 10:
             flag = 1;
             break;
