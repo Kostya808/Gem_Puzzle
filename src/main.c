@@ -39,6 +39,7 @@ int main()
 			  	empty = buf;	
 		    	flag = resolve(1);
 		    	if (flag == 0) {
+			    	init (puzzle, size);
     				mixing (puzzle, size);
 				    empty = search(puzzle, size * size, 0);
 				    move = 0;
